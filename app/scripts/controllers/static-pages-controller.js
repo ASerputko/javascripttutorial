@@ -1,9 +1,9 @@
 /*global define*/
 define(['jquery',
     'config',
-    'views/home-view',
-    'views/help-view',
-    'views/about-view'
+    'views/static-pages/home-view',
+    'views/static-pages/help-view',
+    'views/static-pages/about-view'
 ], function ($, config, HomeView, HelpView, AboutView) {
     'use strict';
 
