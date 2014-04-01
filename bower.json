@@ -2,7 +2,7 @@
   "name": "js-project",
   "version": "0.0.1",
   "dependencies": {
-    "sass-bootstrap": "~3.0.0",
+    "sass-bootstrap": "2.3.2",
     "jquery": "~1.9.0",
     "lodash": "~2.4.1",
     "backbone": "~1.0.0",

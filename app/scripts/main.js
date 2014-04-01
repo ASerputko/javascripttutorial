@@ -18,6 +18,6 @@ require.config({
 require(['router'], function (Router) {
     'use strict';
 
-    var router = new Router();
+    return new Router();
 
 });

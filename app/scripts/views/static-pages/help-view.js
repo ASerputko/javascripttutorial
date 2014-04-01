@@ -2,23 +2,19 @@
 define(function (require) {
     'use strict';
 
-    var Backbone, JST;
+    var ApplicationView, JST;
 
-    Backbone = require('backbone');
+    ApplicationView = require('views/layouts/application-view');
     JST = require('templates');
 
-    return Backbone.View.extend({
+    return ApplicationView.extend({
 
         template: JST['app/scripts/templates/static-pages/help-template.ejs'],
-        
-        initialize: function () {},
-
-        startListening: function () {},
-
-        stopListening: function () {},
 
         render: function () {
-            this.$el.html(this.template());
+            this.templateOptions.yield = this.template();
+            var html = ApplicationView.prototype.template(this.templateOptions);
+            this.$el.html(html);
             return this;
         }
 

@@ -1,10 +1,12 @@
 /*global define*/
 define(['jquery',
     'config',
+    'controllers/application-controller',
     'views/static-pages/home-view',
     'views/static-pages/help-view',
-    'views/static-pages/about-view'
-], function ($, config, HomeView, HelpView, AboutView) {
+    'views/static-pages/about-view',
+    'views/static-pages/contact-view'
+], function ($, config, ApplicationController, HomeView, HelpView, AboutView, ContactView) {
     'use strict';
 
     var StaticPagesController, instance;
@@ -15,18 +17,15 @@ define(['jquery',
         }
         instance = this;
 
-        this.view = null;
-        this.el = $(config.el);
+        ApplicationController.prototype.constructor.call(this);
 
-        this.views = {};
-        this.views.home = new HomeView({el: this.el});
-        this.views.help = new HelpView({el: this.el});
-        this.views.about = new AboutView({el: this.el});
+        this.views.home = new HomeView();
+        this.views.help = new HelpView();
+        this.views.about = new AboutView();
+        this.views.contact = new ContactView();
     };
 
-
     StaticPagesController.prototype = {
-
 
         home: function () {
             this.setView(this.views.home);
@@ -40,15 +39,23 @@ define(['jquery',
             this.setView(this.views.about);
         },
 
+        contact: function () {
+            this.setView(this.views.contact);
+        },
+
         setView: function (view) {
+            this.view = view;
+            this.view.startListening();
+            this.el.append(this.view.render().el);
+        },
+
+        stop: function () {
             if (this.view) {
                 this.view.stopListening();
                 this.view.remove();
             }
-            this.view = view;
-            this.view.startListening();
-            this.view.render();
         }
+
     };
 
     return StaticPagesController;

@@ -9,7 +9,7 @@ define(function (require) {
 
     return ApplicationView.extend({
 
-        template: JST['app/scripts/templates/static-pages/about-template.ejs'],
+        template: JST['app/scripts/templates/users/signup-template.ejs'],
         
         render: function () {
             this.templateOptions.yield = this.template();
