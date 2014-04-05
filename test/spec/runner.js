@@ -2,8 +2,8 @@
 define([
     // All your tests go here.
     'spec/app.test',
-    'spec/models/user.test'
-
+    'spec/models/user.test',
+    'spec/collections/user.test'
 ], function () {
     'use strict';
 

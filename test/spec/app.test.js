@@ -3,12 +3,16 @@ define(['config/app'], function (congig) {
     'use strict';
 
     describe('Application config', function () {
+    	it('VERSION should be "0.0.2"', function() {
+            expect(congig.version).to.equal('0.0.2');
+        });
+
         it('container EL name should be "body"', function() {
-            should.equal('body', congig.el);
+            expect(congig.el).to.equal('body');
         });
 
         it('ENV should be "dev"', function() {
-            should.equal('dev', congig.env);
+            expect(congig.env).to.equal('dev');
         });
     });
 });

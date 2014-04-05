@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="../app/bower_components/mocha/mocha.css">
         <script src="../app/bower_components/mocha/mocha.js"></script>
         <script src="../app/bower_components/chai/chai.js"></script>
+        <script src="../app/bower_components/sinon/lib/sinon.js"></script>
+        
     </head>
     <body>
         <div class="container"></div>
@@ -33,7 +35,7 @@
                     ignoreLeaks: true
                 }
             );
-            var should = chai.should();
+            var expect = chai.expect;
         </script>
 
         <script data-main="spec/main" src="../app/bower_components/requirejs/require.js"></script>

@@ -11,6 +11,12 @@ define(function (require) {
 
         model: Model,
 
+        url: 'users',
+
+        sync: function (methos, collection, options) {
+            options.success(collection.toJSON());
+        },
+
         findBy: function (key, value) {
             var attributes = {};
             attributes[key] = value;

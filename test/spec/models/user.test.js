@@ -1,8 +1,12 @@
 /* global define, describe, it, should */
-define(function () {
+define(['models/user'], function (User) {
     'use strict';
 
-    describe('User', function () {
+    before(function () {
+        this.user = new User();
+    });
+
+    describe('UserModel', function () {
         it('add some examples to (or delete)');
         it('should respond to "name"');
         it('should respond to "email"');
