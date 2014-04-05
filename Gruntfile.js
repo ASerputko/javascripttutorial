@@ -187,7 +187,7 @@ module.exports = function (grunt) {
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
                         'jquery': '../../app/bower_components/jquery/jquery',
-                        'lodash': '../../app/bower_components/lodash/dist/lodash',
+                        'underscore': '../../app/bower_components/lodash/dist/lodash',
                         'backbone': '../../app/bower_components/backbone/backbone'
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
@@ -199,9 +199,8 @@ module.exports = function (grunt) {
                     useStrict: true,
                     wrap: true,
                     //uglify2: {} // https://github.com/mishoo/UglifyJS2
-                    include: '../bower_components/requirejs/require',
-                    mainConfigFile: yeomanConfig.app + '/scripts/config.js',
-                    out: yeomanConfig.dist + '/scripts/app.min.js'
+                    // include: '../bower_components/requirejs/require'
+                    // mainConfigFile: yeomanConfig.app + '/scripts/config.js'
                 }
             }
         },

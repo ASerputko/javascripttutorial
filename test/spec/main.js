@@ -6,7 +6,7 @@ require.config({
     paths: {
         spec: '../../test/spec',
         runner: '../../test/spec/runner',
-        appConfig: '../../app/scripts/config'
+        appConfig: '../../app/scripts/app'
     },
     shim: {
         runner: ['appConfig']

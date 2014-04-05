@@ -13,7 +13,7 @@ define(function (require) {
         template: JST['app/scripts/templates/static-pages/home-template.ejs'],
         
         render: function () {
-            this.templateOptions.yield = this.template(routes);
+            this.templateOptions.body = this.template(routes);
             var html = ApplicationView.prototype.template(this.templateOptions);
             this.$el.html(html);
             return this;
