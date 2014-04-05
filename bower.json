@@ -9,7 +9,9 @@
     "backbone.validation": "~0.7.1",
     "requirejs": "~2.1.5",
     "requirejs-text": "~2.0.5",
-    "modernizr": "~2.6.2"
+    "modernizr": "~2.6.2",
+    "chai": "1.9.1",
+    "mocha": "1.18.2"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
