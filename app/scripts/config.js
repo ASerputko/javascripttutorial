@@ -1,11 +1,19 @@
-/*global define*/
-define('config', function () {
-    'use strict';
+'use strict';
 
-    return {
-        version: '0.0.1',
-        el: 'body',
-        env: 'dev' // dev, test, production
-    };
-
+require.config({
+    deps: ['main'],
+    paths: {
+        jquery: '../bower_components/jquery/jquery',
+        lodash: '../bower_components/lodash/dist/lodash',
+        backbone: '../bower_components/backbone/backbone'
+    },
+    shim: {
+        'lodash': {
+            exports: '_'
+        },
+        'backbone': {
+            deps: ['lodash', 'jquery'],
+            exports: 'Backbone'
+        }
+    }
 });

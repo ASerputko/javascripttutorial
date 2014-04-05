@@ -6,7 +6,7 @@ define(function (require) {
 
     ApplicationView = require('views/layouts/application-view');
     JST = require('templates');
-    routes = require('routes');
+    routes = require('config/routes');
 
     return ApplicationView.extend({
 

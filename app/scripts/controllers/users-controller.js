@@ -1,6 +1,6 @@
 /*global define*/
 define(['jquery',
-    'config',
+    'config/app',
     'controllers/application-controller',
     'views/users/signup-view'
 ], function ($, config, ApplicationController, SignupView) {

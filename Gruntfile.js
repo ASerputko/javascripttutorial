@@ -78,22 +78,20 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            lrSnippet,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, yeomanConfig.app),
+                            mountFolder(connect, '.'),
+                            lrSnippet
                         ];
                     }
                 }
             },
             test: {
                 options: {
-                    port: 9001,
                     middleware: function (connect) {
                         return [
-                            lrSnippet,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, '.')
                         ];
                     }
                 }
@@ -135,8 +133,9 @@ module.exports = function (grunt) {
         mocha: {
             all: {
                 options: {
-                    run: true,
-                    urls: ['http://localhost:<%= connect.test.options.port %>/index.html']
+                    run: false,
+                    reporter: 'Spec',
+                    urls: ['http://localhost:<%= connect.options.port %>/test/index.html']
                 }
             }
         },
@@ -198,8 +197,11 @@ module.exports = function (grunt) {
                     // http://requirejs.org/docs/errors.html#sourcemapcomments
                     preserveLicenseComments: false,
                     useStrict: true,
-                    wrap: true
+                    wrap: true,
                     //uglify2: {} // https://github.com/mishoo/UglifyJS2
+                    include: '../bower_components/requirejs/require',
+                    mainConfigFile: yeomanConfig.app + '/scripts/config.js',
+                    out: yeomanConfig.dist + '/scripts/app.min.js'
                 }
             }
         },
@@ -351,8 +353,8 @@ module.exports = function (grunt) {
                 'jst',
                 'compass',
                 'connect:test',
-                'mocha',
-                'watch:test'
+                'mocha'
+                // 'watch:test'
             ];
             
         if(!isConnected) {

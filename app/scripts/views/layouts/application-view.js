@@ -6,7 +6,7 @@ define(function (require) {
 
     Backbone = require('backbone');
     JST = require('templates');
-    routes = require('routes');
+    routes = require('config/routes');
 
     return Backbone.View.extend({
 

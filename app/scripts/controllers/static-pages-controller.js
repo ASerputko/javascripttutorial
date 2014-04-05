@@ -1,6 +1,6 @@
 /*global define*/
 define(['jquery',
-    'config',
+    'config/app',
     'controllers/application-controller',
     'views/static-pages/home-view',
     'views/static-pages/help-view',

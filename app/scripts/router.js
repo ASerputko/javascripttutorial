@@ -5,7 +5,7 @@ define(function (require) {
     var Backbone = require('backbone'),
         StaticPagesController = require('controllers/static-pages-controller'),
         UsersController = require('controllers/users-controller'),
-        routes = require('routes'),
+        routes = require('config/routes'),
         instance,
         Router;
 

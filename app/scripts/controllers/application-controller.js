@@ -1,7 +1,7 @@
 /*global define*/
 define([
     'jquery',
-    'config'
+    'config/app'
 ], function ($, config) {
     'use strict';
 
