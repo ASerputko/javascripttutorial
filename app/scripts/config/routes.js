@@ -8,6 +8,7 @@ define(function () {
         help: {path: 'help', action: 'help'},
         about: {path: 'about', action: 'about'},
         signup: {path: 'signup', action: 'signup'},
+        userShow: {path: 'user/:id', action: 'userShow'},
         contact: {path: 'contact', action: 'contact'}
     };
 

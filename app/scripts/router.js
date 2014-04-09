@@ -24,17 +24,19 @@ define(function (require) {
             this.routes[routes.help.path] = routes.help.action;
             this.routes[routes.about.path] = routes.about.action;
             this.routes[routes.signup.path] = routes.signup.action;
+            this.routes[routes.userShow.path] = routes.userShow.action;
             this.routes[routes.contact.path] = routes.contact.action;
 
             this._bindRoutes();
         },
 
-        runController: function (controller, action) {
+        runController: function (controller, action, params) {
             if (this.currentController) {
                 this.currentController.stop();
             }
+            params = params || {};
             this.currentController = controller;
-            this.currentController[action]();
+            this.currentController[action](params);
         },
 
         home: function () {
@@ -55,6 +57,10 @@ define(function (require) {
 
         signup: function () {
             this.runController(this.controllers['users-controller'], 'signup');
+        },
+
+        userShow: function (id) {
+            this.runController(this.controllers['users-controller'], 'show', {id: id});
         }
 
     });

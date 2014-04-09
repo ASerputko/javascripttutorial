@@ -1,9 +1,13 @@
 /*global define*/
-define(['jquery',
+define([
+    'underscore',
+    'jquery',
     'config/app',
     'controllers/application-controller',
-    'views/users/signup-view'
-], function ($, config, ApplicationController, SignupView) {
+    'collections/user',
+    'views/users/signup-view',
+    'views/users/show-view'
+], function (_, $, config, ApplicationController, UserCollection, SignupView, ShowView) {
     'use strict';
 
     var UsersController, instance;
@@ -16,7 +20,9 @@ define(['jquery',
 
         ApplicationController.prototype.constructor.call(this);
 
+        this.userCollection = new UserCollection([{id: 1, name: 'Andrii', email: 'aserputko@gmail.com'}]);
         this.views.signup = new SignupView();
+        this.views.show = new ShowView();
     };
 
     UsersController.prototype = {
@@ -25,8 +31,14 @@ define(['jquery',
             this.setView(this.views.signup);
         },
 
-        setView: function (view) {
+        show: function (id) {
+            var user = this.userCollection.get(id) || (new this.userCollection.model());
+            this.setView(this.views.show, {model: user});
+        },
+
+        setView: function (view, oprions) {
             this.view = view;
+            _.extend(this.view, oprions);
             this.view.startListening();
             this.el.append(this.view.render().el);
         },
